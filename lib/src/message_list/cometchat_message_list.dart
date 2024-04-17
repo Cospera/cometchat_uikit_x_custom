@@ -987,8 +987,8 @@ class _CometChatMessageListState extends State<CometChatMessageList> {
           return _getLoadingIndicator(context, _theme);
         } else if (value.list.isEmpty) {
           //----------- empty list widget-----------
-          // return _getNoUserIndicator(context, _theme);
-          return const Center();
+          return _getNoUserIndicator(context, _theme);
+          //return const Center();
         } else {
           return Stack(
             children: [
