@@ -988,7 +988,6 @@ class _CometChatMessageListState extends State<CometChatMessageList> {
         } else if (value.list.isEmpty) {
           //----------- empty list widget-----------
           return _getNoUserIndicator(context, _theme);
-          //return const Center();
         } else {
           return Stack(
             children: [
@@ -1042,6 +1041,24 @@ class _CometChatMessageListState extends State<CometChatMessageList> {
         }
       },
     );
+  }
+
+  Widget _getNoUserIndicator(BuildContext context, CometChatTheme theme) {
+    if (widget.emptyStateView != null) {
+      return Center(child: widget.emptyStateView!(context));
+    } else {
+      return Center(
+        child: Text(
+          widget.emptyStateText ??
+              cc.Translations.of(context).no_messages_found,
+          style: widget.messageListStyle.emptyTextStyle ??
+              TextStyle(
+                  fontSize: theme.typography.title1.fontSize,
+                  fontWeight: theme.typography.title1.fontWeight,
+                  color: theme.palette.getAccent400()),
+        ),
+      );
+    }
   }
 
   Widget? _getStatusInfoView(BubbleAlignment alignment,
