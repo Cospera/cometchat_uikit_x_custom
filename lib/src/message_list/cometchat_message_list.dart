@@ -344,10 +344,9 @@ class _CometChatMessageListState extends State<CometChatMessageList> {
           ?.bubbleView!(messageObject, context, contentVerifier.alignment) ??
           const SizedBox();
     } else {
-      if(kDebugMode) {
-        print('messageObject.category: ${messageObject.category}');
-        print('messageObject.type: ${messageObject.type}');
-      }
+      print('messageObject.category: ${messageObject.category}');
+      print('messageObject.type: ${messageObject.type}');
+      
       BubbleContentVerifier contentVerifier =
       controller.checkBubbleContent(messageObject, widget.alignment);
       Color backgroundColor =
